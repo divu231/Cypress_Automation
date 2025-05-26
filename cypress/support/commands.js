@@ -38,3 +38,7 @@ Cypress.Commands.add('login',(emial,passs)=>{
 Cypress.Commands.add('getByName',name=>{
     return cy.get(`[name="${name}"]`)
 })
+
+Cypress.Commands.add('getByid',id=>{
+    return cy.get(`[id="${id}"]`)
+})
