@@ -1,4 +1,6 @@
 describe("",()=>{
+     const randomNum = Math.random()
+     
     it("api",()=>{
         cy.request('GET','https://gorest.co.in/public/v2/posts').then(resposne=>{
             expect(resposne.status).to.eql(200)
@@ -24,14 +26,5 @@ describe("",()=>{
             cy.log(JSON.stringify(response))
         })
     })
-
-    it("api delete",()=>{
-        const userid = 7910229
-        cy.request('DELETE',`https://gorest.co.in/public/v2/users/${userid}`).then(response =>{
-            expect(response.status).to.eq(204)
-            
-        })
-    })
-
 
 })

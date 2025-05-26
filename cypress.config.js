@@ -1,9 +1,9 @@
 const { defineConfig } = require("cypress");
 
-
 module.exports = defineConfig({
   e2e: {
-    baseUrl:'https://demo-saas.bugbug.io/divya-patel/tickets',
+    //baseUrl:'https://demo-saas.bugbug.io/divya-patel/tickets',
+    baseUrl:'https://conduit.bondaracademy.com/',
     reporter: 'mochawesome',
     reporterOptions: {
     charts: true,
@@ -16,7 +16,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-  },
+  }
   
-
 });

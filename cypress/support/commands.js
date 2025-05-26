@@ -42,3 +42,22 @@ Cypress.Commands.add('getByName',name=>{
 Cypress.Commands.add('getByid',id=>{
     return cy.get(`[id="${id}"]`)
 })
+
+
+Cypress.Commands.add('conduitlogin',(emial,passs)=>{
+    cy.visit('/')
+    cy.contains('a', 'Sign in').click()
+    cy.getByPlaceholder('Email').type(emial)
+    cy.getByPlaceholder('Password').type(passs)
+    cy.getByButtonText('Sign in').click()
+    cy.get('.navbar-brand').should('be.visible')
+})
+
+
+Cypress.Commands.add('getByPlaceholder',name=>{
+    return cy.get(`[placeholder="${name}"]`)
+})
+
+Cypress.Commands.add('getByButtonText',text=>{
+    return cy.contains('button',text)
+})
