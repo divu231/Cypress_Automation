@@ -61,3 +61,7 @@ Cypress.Commands.add('getByPlaceholder',name=>{
 Cypress.Commands.add('getByButtonText',text=>{
     return cy.contains('button',text)
 })
+
+Cypress.Commands.add('getByClassName',className=>{
+    return cy.get(`.${className}`)
+})

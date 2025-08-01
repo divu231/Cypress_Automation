@@ -1,0 +1,44 @@
+pipeline{
+    agent any
+    parameters{
+        string(name:'SPEC',defaultValue:'cypress/e2e/testSpecFiles/UI_API_Project/**',description:"Enter the scripts you want to execute")
+        choice(name:'BROWSER',choices:['chrome','edge'],description:"Select browser to execute your scripts")
+    }
+    options{
+        ansiColor('xterm')
+    }
+    stages{
+        stage("Build"){
+            steps{
+                 echo 'Build'
+            }
+           
+        }
+        stage("Test"){
+            steps{
+                bat "npm i"
+                bat "npx cypress run --browser ${BROWSER}  --spec ${SPEC}"
+            }
+          
+        }
+        stage("Deploy"){
+            steps{
+                echo 'Deploy'
+            }
+            
+        }
+
+    }
+    post{
+        always{
+            publishHTML (target : [allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'reports',
+            reportFiles: 'myreport.html',
+            reportName: 'My Reports',
+            reportTitles: 'The Report'])
+        }
+    }
+
+}
