@@ -5,7 +5,7 @@ describe("UI Componenet test", () => {
         cy.visit("/")
     })
 
-    it("UI componeents form fillup", () => {
+    it("UI componeents form fillup", { tags: '@uiTest' }, () => {
         cy.getByPlaceholder('Enter Name').type("Divya")
         cy.getByPlaceholder('Enter Name').should("have.value", 'Divya')
         cy.getByPlaceholder('Enter EMail').type("Divya").invoke('text')

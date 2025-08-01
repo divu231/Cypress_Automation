@@ -2,7 +2,7 @@
 import * as articles from '../../actionFiles/articleActions.js'
 
 
-describe('TestAPI', () => {
+describe('TestAPI', { tags: ['@api', '@regression'] },() => {
     const randomNum = Math.random()
     var id = ''
 
